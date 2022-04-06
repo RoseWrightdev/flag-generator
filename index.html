@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"rel="stylesheet">
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">    
+    <link rel="stylesheet" href="style.css">
+    <title>Pride</title>
+</head>
+<body>
+    <span class="material-icons-outlined" id="open" onclick="openMenu()">menu</span>
+    <nav id="nav">
+        <!--heading-->
+        <span class="material-icons-outlined" id="close" onclick="closeMenu()">close</span>
+        <div class="navbar">
+        <h1>CSS Flag Generator</h1>
+        <!--heading-->
+        <!--Stripe Input-->
+        <label for="stripe-number">How Many Stripes?</label><br>
+        <input type="number" id="stripe-number" min="2" max="12" placeholder="3">
+        <button type="submit" onclick="update();">Reset Stripes</button><br>
+        <!--Stripe Input-->
+        <div id="colorOption" class="colorOption"></div>
+        <button type="submit" onclick="colorSelection()">Submit Color Selection</button>
+        <br>
+        <p>Show Stripe Highlights</p>
+        <label class="switch">
+            <input type="checkbox" id="borderCheck" checked onclick="outlinecheckBox()">
+            <span class="slider round"></span>
+        </label>
+        <p>Show Numbers</p>
+        <label class="switch">
+            <input type="checkbox" id="numbersCheck" checked onclick="numberCheck()">
+            <span class="slider round"></span>
+        </label>
+        <br>
+        <br>
+        <label for="id">Add a Random Fade</label>
+        <button type="submit" onclick="colorDefaults()" id="fade">Random fade</button><br>
+        <h1 id="test" class="borderTest">border test</h1>
+
+        </div>      
+    </nav>
+         <!--Flag is inserted here in JS-->
+    <div id="flag" class="flag"></div>
+    <script defer src="script.js"></script>
+</body>
+</html>
