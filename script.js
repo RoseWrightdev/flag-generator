@@ -129,7 +129,6 @@ for(counter = 1; counter <= stripeVal; counter++){
     }
     createColorOption()
 }
-updateCount;
 }
 update()
 
@@ -255,15 +254,18 @@ function numbercheckbox(){
                 let i = document.getElementById('stripe' + counter)
                 // sets
                 i.innerHTML = ""            
-                
         }
     }
     else{
             for(let counter = 1; counter <= elementCount; counter++ ){
+
+                document.getElementById('hexReset').innerHTML = '';
+                document.getElementById('hexReset').innerHTML = '<p>Show RGB value</p><label class="switch"><input type="checkbox" id="showHex" checked onclick="showHex()"><span class="slider round"></span></label>';
+            
                 // selects
                 let i = document.getElementById('stripe' + counter)
                 // sets
-                i.innerHTML = "" + counter;          
+                i.innerHTML = "" + counter;
         }
     }
 }
@@ -286,6 +288,10 @@ function showHex(){
     }
     else{
             for(let counter = 1; counter <= elementCount; counter++ ){
+
+                
+                document.getElementById('numbersReset').innerHTML = '';
+                document.getElementById('numbersReset').innerHTML = '<p>Number Stripes</p><label class="switch"><input type="checkbox" id="numbersCheck" checked onclick="numbercheckbox()"><span class="slider round"></span></label>';
                   
                 // selects
                 let i = document.getElementById('stripe' + counter)
@@ -300,3 +306,7 @@ function showHex(){
 }
 
 
+function numbercheckboxClear() {
+    document.getElementById('numbersReset').innerHTML = '';
+    document.getElementById('numbersReset').innerHTML = '<p>Number Stripes</p><label class="switch"><input type="checkbox" id="numbersCheck" checked onclick="numbercheckbox()"><span class="slider round"></span></label>';
+}
