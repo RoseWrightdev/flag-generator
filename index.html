@@ -26,25 +26,35 @@
         <input type="number" id="stripe-number" min="2" max="12" placeholder="3">
         <button type="submit" onclick="update();">Reset Stripes</button><br>
         <!--Stripe Input-->
-        <div id="colorOption" class="colorOption"></div>
+        <div id="colorOption" class="colorOption"></div><br>
         <button type="submit" onclick="colorSelection()">Submit Color Selection</button>
         <br>
+        <div id="borderReset">
         <p>Show Stripe Highlights</p>
         <label class="switch">
             <input type="checkbox" id="borderCheck" checked onclick="outlinecheckBox()">
             <span class="slider round"></span>
         </label>
-        <p>Show Numbers</p>
+        </div>
+        <div id="numbersReset">
+        <p>Number Stripes</p>
         <label class="switch">
-            <input type="checkbox" id="numbersCheck" checked onclick="numberCheck()">
+            <input type="checkbox" id="numbersCheck" checked onclick="numbercheckbox()">
             <span class="slider round"></span>
         </label>
-        <br>
-        <br>
-        <label for="id">Add a Random Fade</label>
-        <button type="submit" onclick="colorDefaults()" id="fade">Random fade</button><br>
-        <h1 id="test" class="borderTest">border test</h1>
+        </div>
 
+        <div id="hexReset">
+        <p>Show Color Code</p>
+        <label class="switch">
+            <input type="checkbox" id="showHex" checked onclick="showHex()">
+            <span class="slider round"></span>
+        </label>
+        </div>
+        <br>
+        <br>
+        <label for="id">Add a Random Fade</label><br>
+        <button type="submit" onclick="colorDefaults(); showHex();" id="fade">Random fade</button><br>
         </div>      
     </nav>
          <!--Flag is inserted here in JS-->

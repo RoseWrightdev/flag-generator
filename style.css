@@ -3,7 +3,7 @@ body{
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
-    background: rgb(48, 48, 48);
+    background: rgb(113, 113, 113);
 }
 
 nav::-webkit-scrollbar {
@@ -24,16 +24,15 @@ body::-webkit-scrollbar {
 	width: 1vw;
 }
 body::-webkit-scrollbar-track {
-	background: transparent;
+	background: black;
 }
 body::-webkit-scrollbar-thumb {
 	background: white;
 	border-radius: 3vw;
 }
 body::-webkit-scrollbar-button {
-	background-color: transparent;
+	background: black;
 }
-
 
 nav{
     background-color: rgba(0, 0, 0, .90);
@@ -67,7 +66,7 @@ nav{
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: #00ff37;
     -webkit-transition: .4s;
     transition: .4s;
   }
@@ -83,13 +82,16 @@ nav{
     -webkit-transition: .4s;
     transition: .4s;
   }
+  .slider:before:hover{
+    background-color: black;
+  }
   
   input:checked + .slider {
-    background-color: #575757;
+    background-color: #ff0000;
   }
   
   input:focus + .slider {
-    box-shadow: 0 0 1px #575757;
+    box-shadow: 0 0 1px #00ff37;
   }
   
   input:checked + .slider:before {
@@ -148,9 +150,10 @@ button{
     font-family: monospace;
     border: none;
     margin: 1vh;
+    transition: 0.2s;
 }
 
-.borderTest{
-    font-size: 10vh;
-    display: none;
+button:hover{
+  background: rgb(62, 62, 62);
+  color: white
 }

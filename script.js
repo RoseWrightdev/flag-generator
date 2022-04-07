@@ -1,6 +1,5 @@
 //nav
 let navCounter = null;
-
 function closeMenu(){
     let menu = document.getElementById('nav');
     menu.style.left = '-100vw';
@@ -9,7 +8,6 @@ function closeMenu(){
     console.log('navCounter = ' + navCounter);
     if(navCounter % 2 == 0){
         return console.log('Nav is already closed')
-        navCounter--;
     }
 }
 function openMenu(){
@@ -17,21 +15,14 @@ function openMenu(){
     menu.style.left = '0%';
 
     navCounter++;
-    //console.log('navCounter = ' + navCounter);
+    console.log('navCounter = ' + navCounter);
     if(navCounter % 2 !== 0){
-        return //console.log('Nav is already open')
-        navCounter--;
+        return console.log('Nav is already open')
     }
 } 
 
 //stripe height
 let stripeHeight = 100;
-
-function numberCheck(){
-    let numberCheckTest = document.querySelector('#numberCheck:checked') !== null;
-    return numberCheckTest
-}
-let numberCheckTest = numberCheck()
 
 //clearing function
 let updateCount = 0;
@@ -40,25 +31,29 @@ function update(){
 if(updateCount > 0){
     document.getElementById('colorOption').innerHTML = '';
     document.getElementById('flag').innerHTML = '';
+    document.getElementById('borderReset').innerHTML = '';
+    document.getElementById('borderReset').innerHTML = '<p>Show Stripe Highlights</p><label class="switch"><input type="checkbox" id="borderCheck" checked onclick="outlinecheckBox()"><span class="slider round"></span></label>';
+    document.getElementById('numbersReset').innerHTML = '';
+    document.getElementById('numbersReset').innerHTML = '<p>Number Stripes</p><label class="switch"><input type="checkbox" id="numbersCheck" checked onclick="numbercheckbox()"><span class="slider round"></span></label>';
+    document.getElementById('hexReset').innerHTML = '';
+    document.getElementById('hexReset').innerHTML = '<p>Show RGB value</p><label class="switch"><input type="checkbox" id="showHex" checked onclick="showHex()"><span class="slider round"></span></label>';
 }
 
 //Get number of stripes inputed and set default value if no input is given.
 function stripeFunc(){
     let stripeNum = document.getElementById('stripe-number').value;
     if(stripeNum >= 1 && stripeNum <= 12){
-        //console.log(stripeNum + '\nif stripeNum active');
+        ////console.log(stripeNum + '\nif stripeNum active');
         return stripeNum;
     }
     else{
         let stripeNum = 3;
-        //console.log(stripeNum + '\n\nelse stripeNum active');
+        ////console.log(stripeNum + '\n\nelse stripeNum active');
         return stripeNum;
     }
 }
 let stripeVal = stripeFunc();
-//console.log(stripeVal + "\n\nStripe Value Function Test");
-
-//stripe height border check
+////console.log(stripeVal + "\n\nStripe Value Function Test");
 
 
 //create stripes inputed
@@ -79,26 +74,15 @@ for(counter = 1; counter <= stripeVal; counter++){
         stripe.style.paddingRight = '0.5vw';
         //font family
         stripe.style.fontFamily = 'monospace';
+        //adds areStripeNumbersEnabled function
 
         //adds close function
         stripe.setAttribute('onclick','closeMenu()');
-        //numbered stripe function
-        
-        if(numberCheckTest){
-            stripe.innerHTML = '' + counter;
-            console.log('numbers on')
-        }
-        else{
-            stripe.innerHTML = '';
-            console.log('numbers off')
 
-        }
-
-        //adds number
 
 
         ////console test
-        //console.log('stripe' + counter + '\n\nCreateStripe Function Test');
+        ////console.log('stripe' + counter + '\n\nCreateStripe Function Test');
         //poisitions in dom
         const stripeDom = document.getElementById('flag');
         stripeDom.appendChild(stripe);
@@ -141,7 +125,7 @@ for(counter = 1; counter <= stripeVal; counter++){
         //sets lable text
         let lableTaxt = document.getElementById(colorInputLableId).innerHTML = preface + ' stripe color';  
         }
-        ////console.log(lableTaxt)
+        //////console.log(lableTaxt)
     }
     createColorOption()
 }
@@ -154,10 +138,10 @@ function colorSelection(){
     //setup
     let parent = document.getElementById('flag');
     let elementCount = parent.childElementCount;
-    //console.log(elementCount + 'childElementCount')
+    ////console.log(elementCount + 'childElementCount')
     //loop
     for(let colorCounter = 1; colorCounter <= elementCount; colorCounter++){
-        //console.log(colorCounter + ' colorCounter')
+        ////console.log(colorCounter + ' colorCounter')
         let color = document.getElementById('color-option-' + colorCounter).value
         let stripeColor = document.getElementById('stripe' + colorCounter)
         stripeColor.style.background = color
@@ -218,7 +202,7 @@ function colorDefaults(){
     //loop
     for(let colorCounter = 1; colorCounter <= elementCountcolorDefaults; colorCounter++ ){
             // increases increment on each loop
-            console.log(increment += colorCounter * 1.5)
+            increment += colorCounter * 1.5
             // selects color
             let stripeColor = document.getElementById('stripe' + colorCounter)
             // sets color
@@ -228,6 +212,7 @@ function colorDefaults(){
        
 }
 colorDefaults()
+
 //checks for borders
 function outlinecheckBox(){
     //element counter
@@ -235,24 +220,16 @@ function outlinecheckBox(){
     let elementCountBorder = borderParents.childElementCount;
     //converts checkbox to boonlean value
     let borderCheck = document.querySelector('#borderCheck:checked') !== null;
-    console.log(borderCheck)
-    if(borderCheck){
-            let textTest = document.getElementById('test')
-            let test = textTest.style.color = 'red';
-            console.log(test)
-            
+    //console.log(borderCheck)
+    if(borderCheck){           
             for(let borderCounter = 1; borderCounter <= elementCountBorder; borderCounter++ ){
                 // selects border
                 let border = document.getElementById('stripe' + borderCounter)
                 // sets border
                 border.style.border = 'none'            
-                
         }
     }
     else{
-        let textTest = document.getElementById('test')
-            let test = textTest.style.color = 'blue';
-            console.log(test)
             for(let borderCounter = 1; borderCounter <= elementCountBorder; borderCounter++ ){
                 // selects border
                 let border = document.getElementById('stripe' + borderCounter)
@@ -262,3 +239,64 @@ function outlinecheckBox(){
     }
 }
 outlinecheckBox()
+
+//checks for borders
+function numbercheckbox(){
+    //element counter
+    let parents = document.getElementById('flag');
+    let elementCount = parents.childElementCount;
+    //converts checkbox to boonlean value
+    let check = document.querySelector('#numbersCheck:checked') !== null;
+    //console.log(check)
+    if(check){
+            
+            for(let counter = 1; counter <= elementCount; counter++ ){
+                // selects
+                let i = document.getElementById('stripe' + counter)
+                // sets
+                i.innerHTML = ""            
+                
+        }
+    }
+    else{
+            for(let counter = 1; counter <= elementCount; counter++ ){
+                // selects
+                let i = document.getElementById('stripe' + counter)
+                // sets
+                i.innerHTML = "" + counter;          
+        }
+    }
+}
+numbercheckbox()
+
+function showHex(){
+    //element counter
+    let parents = document.getElementById('flag');
+    let elementCount = parents.childElementCount;
+    //converts checkbox to boonlean value
+    let check = document.querySelector('#showHex:checked') !== null;
+    if(check){
+            
+            for(let counter = 1; counter <= elementCount; counter++ ){
+                // selects
+                let i = document.getElementById('stripe' + counter)
+                // sets
+                i.innerHTML = ""                 
+        }
+    }
+    else{
+            for(let counter = 1; counter <= elementCount; counter++ ){
+                  
+                // selects
+                let i = document.getElementById('stripe' + counter)
+                const style = getComputedStyle(i)
+
+                const backgroundColor = style.backgroundColor
+                console.log(backgroundColor) // rgb(0, 0, 0)
+                // sets
+                i.innerHTML = backgroundColor        
+        }
+    }
+}
+
+
